@@ -7,7 +7,7 @@ import './index.css';
 
 import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
-
+import Redi from './pages/Red.tsx'
 
 
 // const hideNavbar = location.pathname === "/admin";
@@ -18,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <div>
                 {/* {!hideNavbar && <Navbar />} */}
                 <Routes>
+                    <Route path="/redi" element={<Redi />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/" element={<Home />} />
                     <Route path="*" element={<Home />} />

@@ -5,18 +5,40 @@ import Profile from  '../components/Profile'
 import News from  '../components/News'
 import Chats from  '../components/Chats'
 
+import axios from 'axios';
 import React, { useState } from "react";
+import useUserStore from '../components/store.tsx';
 
 
 function Dashboard(){
+    const setUserData = useUserStore((state) => state.setUserData);
+    async function getUserData(token){
+        try {
+            const response = await axios(`http://13.222.154.232:4000/user_info`, {
+                method: 'GET',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `${token}`,
+            },
+      });
+        setUserData({name: response.data.login , img: response.data.img})
+    } catch (error) {
+       window.location.href = `http://localhost:5173/login`
+    }
+};
 
-const [activeTab, setActiveTab] = useState("profile");
-
+    const token = useUserStore((state) => state.user.token);
+    if (!token)
+      window.location.href = `http://localhost:5173/login`
+    else
+        getUserData(token);
+    const [activeTab, setActiveTab] = useState("profile");
+    
 function handleNavigation(tab: string) {
   setActiveTab(tab);
 }
 
-return(
+    return(
     
     <div className=" w-full h-[100vh] flex " >
         <div className="bg-blue-300 bg-blur-md w-[10%] flex flex-col justify-between pt-4 pl-4 pr-4 bg-opacity-60">
