@@ -6,6 +6,243 @@ import { IoSend } from "react-icons/io5";
 function Chats()
 {
     const user = "abechcha";
+
+
+    const users = [
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+            {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+            {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },,
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },,
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "abechcha",
+        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
+        "status": "online"
+      },
+    ];
+
+
+
     const chat = [
     {
         "name": "user1",
@@ -33,6 +270,7 @@ function Chats()
         "message":"testccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccdddddddddddddddddddddddddddddddddddddddddddddddderfvggggggghjttttt"
     },
     
+      
 ];
     const access = true;
     return (
@@ -56,8 +294,33 @@ function Chats()
                 </div>
             }
             {access === true && 
-                <div className="w-full h-full flex justify-center items-center">
-                    <div className="w-[99%] h-[99%] shadow-md bg-gray-100 flex flex-col justify-between">
+                <div className="w-full h-full flex justify-end items-center">
+                    <div className="w-[20%] h-full  flex flex-col justify-around items-center">
+
+                        <div className="w-[90%] h-[49%]  bg-gray-100 shadow-md flex flex-col items-center overflow-y-scroll scrollbar-hide rounded-md gap-2">
+                          {users
+                            .filter(user => user.status === 'online')
+                            .map((user, index) => (
+                              <div key={index} className="w-[90%] h-[10%]  flex items-center justify-around">
+                                <img src={user.img} alt={user.name} className="w-12 h-12 rounded-full border-green-400 border-solid border-4" />
+                                <span>{user.name}</span>
+                              </div>
+                            ))}
+                        </div>
+                          
+                        <div className="w-[90%] h-[49%]  bg-gray-100 shadow-md flex flex-col overflow-y-scroll scrollbar-hide rounded-md gap-2">
+                          {users
+                            .filter(user => user.status === 'offline')
+                            .map((user, index) => (
+                              <div key={index} className="w-[90%] h-[10%]   flex items-center justify-around">
+                                <img src={user.img} alt={user.name} className="w-12 h-12 rounded-full border-red-500 border-solid border-4" />
+                                <span>{user.name}</span>
+                              </div>
+                            ))}
+                        </div>
+
+                      </div>
+                    <div className="w-[80%] h-[99%] shadow-md bg-gray-100 flex flex-col justify-between">
                         <div className="w-full h-[95%] flex flex-col">
                         {chat.map((message, index) => {
                           const isCurrentUser = message.name === user;                      
@@ -95,8 +358,6 @@ function Chats()
                             </div>
                           );
                         })}
-
-
 
                         </div>
                         <div className="w-full h-[5%]  flex items-center justify-around">

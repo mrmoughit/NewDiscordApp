@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 function News() {
     const array = [
         {
+            "id":8,
             "name": "abechcha",
             "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
             "project_name": "libft",
@@ -8,20 +10,7 @@ function News() {
             "status": "online"
         },
         {
-            "name": "abechcha",
-            "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-            "project_name": "libft",
-            "date": "12:90",
-            "status": "Ofline"
-        },
-        {
-            "name": "abechcha",
-            "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-            "project_name": "libft",
-            "date": "12:90",
-            "status": "online"
-        },
-        {
+            "id":9,
             "name": "abechcha",
             "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
             "project_name": "libft",
@@ -29,6 +18,7 @@ function News() {
             "status": "f"
         },
            {
+            "id": 19,
             "name": "abechcha",
             "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
             "project_name": "libft",
@@ -36,6 +26,7 @@ function News() {
             "status": "online"
         },
         {
+            "id":10,
             "name": "abechcha",
             "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
             "project_name": "libft",
@@ -43,6 +34,7 @@ function News() {
             "status": "Ofline"
         },
         {
+            "id":11,
             "name": "abechcha",
             "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
             "project_name": "libft",
@@ -50,34 +42,7 @@ function News() {
             "status": "online"
         },
         {
-            "name": "abechcha",
-            "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-            "project_name": "libft",
-            "date": "12:90",
-            "status": "f"
-        },
-           {
-            "name": "abechcha",
-            "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-            "project_name": "libft",
-            "date": "12:90",
-            "status": "online"
-        },
-        {
-            "name": "abechcha",
-            "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-            "project_name": "libft",
-            "date": "12:90",
-            "status": "Ofline"
-        },
-        {
-            "name": "abechcha",
-            "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-            "project_name": "libft",
-            "date": "12:90",
-            "status": "online"
-        },
-        {
+            "id":12,
             "name": "abechcha",
             "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
             "project_name": "libft",
@@ -86,6 +51,8 @@ function News() {
         }
     ];
 
+    const defaultImage = "https://cdn.intra.42.fr/users/7e8c22c91bfd161efd60378589a7d59c/aelbouab.jpg";
+    const [isHovered, setIsHovered] = useState(-1);
     return (
         <div className="w-[90%] mx-auto h-full flex flex-col lg:flex-row gap-4">
             
@@ -93,8 +60,8 @@ function News() {
             <div className="w-[90%] rounded-md bg-red-100 flex justify-center"><p className="text-xl">live actions</p></div>
                 {array.map((card, index) => (
                     <div key={index} className="w-[90%] h-[14%] bg-white shadow-2xl rounded-md flex flex-col sm:flex-row p-4 gap-4">
-                        <div className="flex justify-center items-center sm:w-1/3">
-                            <img className="rounded-full w-40 object-cover " src={card.img} alt={card.name} />
+                        <div className="flex justify-center items-center sm:w-1/3" onMouseEnter={() => setIsHovered(card.id)} onMouseLeave={() => setIsHovered(false)}>
+                            <img className="rounded-full w-40 h-40 object-cover transition-all duration-300 ease-in-out" src={isHovered === card.id ? card.img : defaultImage} alt={card.name}/>
                         </div>
                         <div className="sm:w-1/3 flex flex-col justify-center items-center gap-1 text-center">
                             <p className="text-3xl font-semibold">{card.name}</p>

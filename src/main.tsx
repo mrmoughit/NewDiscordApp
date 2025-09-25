@@ -6,6 +6,7 @@ import './index.css';
 
 
 import Home from './pages/Home.tsx';
+import Login from './pages/Login.tsx';
 
 
 
@@ -17,8 +18,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <div>
                 {/* {!hideNavbar && <Navbar />} */}
                 <Routes>
+                    <Route path="/login" element={<Login />} />
                     <Route path="/" element={<Home />} />
-
                     <Route path="*" element={<Home />} />
                 </Routes>
             </div>
