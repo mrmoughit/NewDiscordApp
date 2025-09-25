@@ -60,11 +60,11 @@ function News() {
             <div className="w-[90%] rounded-md bg-red-100 flex justify-center"><p className="text-xl">live actions</p></div>
                 {array.map((card, index) => (
                     <div key={index} className="w-[90%] h-[14%] bg-white shadow-2xl rounded-md flex flex-col sm:flex-row p-4 gap-4">
-                        <div className="flex justify-center items-center sm:w-1/3" onMouseEnter={() => setIsHovered(card.id)} onMouseLeave={() => setIsHovered(false)}>
+                        <div className="flex justify-center items-center sm:w-1/3" onMouseEnter={() => setIsHovered(card.id)} onMouseLeave={() => setIsHovered(-1)}>
                             <img className="rounded-full w-40 h-40 object-cover transition-all duration-300 ease-in-out" src={isHovered === card.id ? card.img : defaultImage} alt={card.name}/>
                         </div>
                         <div className="sm:w-1/3 flex flex-col justify-center items-center gap-1 text-center">
-                            <p className="text-3xl font-semibold">{card.name}</p>
+                            <p className="text-3xl font-semibold blur-md hover:blur-none">{card.name}</p>
                             <p className="text-2xl text-gray-600">{card.project_name}</p>
                         </div>
                         <div className="sm:w-1/3 flex justify-end items-end sm:items-center text-sm text-gray-500">
@@ -86,11 +86,11 @@ function News() {
                     </div>
                   </div>                   
 
-                  <div className="flex justify-center items-center sm:w-1/3">
-                    <img className="rounded-full w-40 object-cover" src={card.img} alt={card.name} />
+                  <div className="flex justify-center items-center sm:w-1/3 " onMouseEnter={() => setIsHovered(card.id)} onMouseLeave={() => setIsHovered(-1)}>
+                   <img className="rounded-full w-40 h-40 object-cover transition-all duration-300 ease-in-out" src={isHovered === card.id ? card.img : defaultImage} alt={card.name}/>
                   </div>
                   <div className="sm:w-1/3 flex flex-col justify-center items-center gap-1 text-center">
-                    <p className="text-3xl font-semibold">{card.name}</p>
+                    <p className="text-3xl font-semibold blur-md hover:blur-none">{card.name}</p>
                     <p className="text-2xl text-gray-600">{card.project_name}</p>
                   </div>
                   <div className="sm:w-1/3 flex justify-end items-end sm:items-center text-sm text-gray-500">

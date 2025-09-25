@@ -170,9 +170,26 @@ function Profile(){
         }
     ];
     return (
-
-        <div className="w-[90%] h-full  flex justify-center items-center">
-            <div className="w-[50%] h-[60%] bg-gray-100 flex flex-col shadow-md justify-around rounded-lg">
+        <div className="w-[90%]  h-full flex flex-col">
+          <div className="h-[10%] w-full flex justify-center items-end text-2xl "><h1>WELCOME BACK ADMIN</h1></div>
+          <div className="h-[20%] w-[100%] flex justify-center items-center text-2xl bg-gray-100 shadow-md gap-5">
+            <div className="w-[20%] h-[60%] bg-green-500 shadow-lg flex flex-col items-center justify-around text-white ">
+              <h1 className="text-2xl">Succes</h1>
+              <p className="text-3xl">100</p>
+            </div>
+            <div className="w-[20%] h-[60%] bg-gray-500 shadow-lg flex flex-col items-center text-white justify-around"><h1 className="text-2xl">field</h1> 
+              <p className="text-3xl">100</p>
+            </div>
+            <div className="w-[20%] h-[60%] bg-red-600 shadow-lg flex flex-col items-center text-white justify-around" > <h1 className="text-2xl">watting</h1>
+                <p className="text-3xl">100</p>
+            </div>
+            <div className="w-[20%] h-[60%] bg-yellow-500 shadow-lg flex flex-col items-center text-white justify-around"><h1 className="text-2xl">total</h1>
+                <p className="text-3xl">100</p>
+            </div>
+            
+          </div>
+            <div className="w-[100%] h-[70%]  flex justify-center items-center">
+              <div className="w-[50%] h-[60%] bg-gray-100 flex flex-col shadow-md justify-around rounded-lg">
                 <div className="h-[30%] w-full ">
                     <div className="h-[80%]  flex justify-center items-center bg-"><img className="h-[80%] rounded-[50%]" src='https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg'  /></div>
                     <div className=" flex justify-center items-center"><h1 className="text-3xl">yzoullikha</h1></div>
@@ -186,14 +203,15 @@ function Profile(){
                 </div>
                 <div className=" w-full h-[70%] flex flex-col overflow-scroll scrollbar-hide ">
                     {objects.map((object , index)=> (
-                        <div key={index} className=" flex justify-center ">
-                            <div  className=" flex justify-between pl-3 pr-3 mt-4  w-[70%] "><p className="text-xl">{object.name}</p>
+                        <div key={index} className=" flex justify-center blur-2xl hover:blur-none">
+                            <div  className=" flex justify-between pl-3 pr-3 mt-4  w-[70%] "><p className="text-xl ">{object.name}</p>
                                 <MdDelete color="red" size={25}/>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
+          </div>
         </div>
     )}
 export default Profile;
