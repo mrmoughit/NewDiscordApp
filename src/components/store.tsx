@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 
 const useUserStore = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       user: {
         id: null,
         name: null,
@@ -12,12 +12,32 @@ const useUserStore = create(
       },
 
       friends: [],
+      socket: null,
 
-        addFriends: (friendsArray) =>
+      connect: () => {
+
+        const ws = new WebSocket(
+          `ws://13.222.154.232:80/ws`
+        );
+
+        ws.onopen = () => {
+          console.log("Connected");
+          ws.send(get().user.name || "");
+        };
+
+        ws.onclose = () => {
+          console.log("Disconnected");
+        };
+
+        set({ socket: ws });
+      },
+
+      addFriends: (friendsArray) =>
         set((state) => ({
-            friends: [...state.friends, ...friendsArray],
+          friends: [...state.friends, ...friendsArray],
         })),
-        addFriend: (friend) =>
+      
+      addFriend: (friend) =>
         set((state) => ({
           friends: [...state.friends, friend],
         })),
@@ -26,11 +46,8 @@ const useUserStore = create(
         set((state) => ({
           friends: state.friends.filter((f) => f.name !== name),
         })),
-    clearFriends: () =>
-        set({ friends: [] }),
-
-
-
+      
+      clearFriends: () => set({ friends: [] }),
 
       setUserData: (data) =>
         set((state) => ({
@@ -43,13 +60,9 @@ const useUserStore = create(
         }),
     }),
     {
-      name: "user-storage",
+      name: "user-storage", // This will persist the store in localStorage
     }
-    )
-    
-
-
-    
+  )
 );
 
 export default useUserStore;

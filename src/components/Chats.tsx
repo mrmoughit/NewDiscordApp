@@ -1,5 +1,7 @@
 
 import { IoSend } from "react-icons/io5";
+import useUserStore from '../components/store.tsx';
+import { useEffect } from "react";
 
 
 
@@ -269,11 +271,30 @@ function Chats()
         "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
         "message":"testccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccdddddddddddddddddddddddddddddddddddddddddddddddderfvggggggghjttttt"
     },
-    
       
 ];
+
+
+    const name = useUserStore((state) => state.user.name);
+    const socket = useUserStore((state) => state.socket);
+
+    useEffect(() => {
+       if (!socket) return;
+
+    socket.onmessage = (event: any) => {
+      console.log("here");
+      const { type, data } = JSON.parse(event.data);
+      console.log(type);
+      if (type === "message") {
+        console.log(data);
+      }
+    };
+  }, [socket]);
+
     const access = true;
+
     return (
+
         <div className="w-[90%] h-full">
             {access === false && 
                 <div className="flex justify-center items-center w-full h-full bg-gray-50">

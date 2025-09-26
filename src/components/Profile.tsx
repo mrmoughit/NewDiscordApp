@@ -179,9 +179,6 @@ function Profile(){
         },
       });
       Setfreinds1(response.data);
-      // clearFriends();
-      // addFriends(response.data);
-      
       
     } catch (error) {
       console.error('Error fetching enemies:', error);
