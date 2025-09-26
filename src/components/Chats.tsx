@@ -1,226 +1,63 @@
 
 import { IoSend } from "react-icons/io5";
 import useUserStore from '../components/store.tsx';
-import { useEffect } from "react";
+import { useEffect , useState } from "react";
+import { useStore } from "zustand";
+import axios from "axios";
 
 
 
 function Chats()
 {
-    const user = "abechcha";
+  const [messages , setMessages] = useState([]);
+  const [input , Setinput] = useState('');
+  
+  const name = useUserStore((state) => state.user.name);
+  const token = useUserStore((state) => state.user.token);
+  const img = useUserStore((state) => state.user.img);
+  
+  const HandleSend = async () => {
+    if(!input.trim())
+        return ;
+      await axios.post("http://13.222.154.232:4000/api/send-message", {
+        user: name,
+        message: input.trim(),
+        img,
+        token,
+      });
+    setMessages((prev) => [
+    ...prev,
+      {
+        message: input.trim(),
+        sender: name,
+        sender_image: img,
+      },
+    ]);
+    Setinput('');
 
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios("http://13.222.154.232:4000/api/Conversation", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${token}`,
+            login: `${name}`,
+          },
+        });
+        setMessages(response.data); 
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [token]);
 
     const users = [
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-            {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-            {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },,
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "offline"
-      },
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },,
-      {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "status": "online"
-      },
       {
         "name": "abechcha",
         "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
@@ -244,54 +81,29 @@ function Chats()
     ];
 
 
-
-    const chat = [
-    {
-        "name": "user1",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "message":"testccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccdddddddddddddddddddddddddddddddddddddddddddddddderfvggggggghjttttt"
-    },
-    {
-        "name": "user1",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "message":"testccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccdddddddddddddddddddddddddddddddddddddddddddddddderfvggggggghjttttt"
-    },
-    {
-        "name": "user1",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "message":"testccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccdddddddddddddddddddddddddddddddddddddddddddddddderfvggggggghjttttt"
-    },
-    {
-        "name": "user1",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "message":"testccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccdddddddddddddddddddddddddddddddddddddddddddddddderfvggggggghjttttt"
-    },
-    {
-        "name": "abechcha",
-        "img": "https://cdn.intra.42.fr/users/9ae5b3303aaceb68d7a6e580c60545a4/yzoullik.jpg",
-        "message":"testccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccdddddddddddddddddddddddddddddddddddddddddddddddderfvggggggghjttttt"
-    },
-      
-];
-
-
-    const name = useUserStore((state) => state.user.name);
     const socket = useUserStore((state) => state.socket);
 
     useEffect(() => {
        if (!socket) return;
 
     socket.onmessage = (event: any) => {
-      console.log("here");
       const { type, data } = JSON.parse(event.data);
       console.log(type);
       if (type === "message") {
-        console.log(data);
+        console.log(type , data);
+        setMessages((prev) => [...prev,{message: data.message,sender: data.sender, sender_image: data.sender_image},]);
       }
     };
   }, [socket]);
 
     const access = true;
+
+    useEffect(() => {
+    const chatContainer = document.querySelector('.chat-body');
+    if (chatContainer) {
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+  }, [messages]);
 
     return (
 
@@ -342,9 +154,9 @@ function Chats()
 
                       </div>
                     <div className="w-[80%] h-[99%] shadow-md bg-gray-100 flex flex-col justify-between">
-                        <div className="w-full h-[95%] flex flex-col">
-                        {chat.map((message, index) => {
-                          const isCurrentUser = message.name === user;                      
+                        <div className="chat-body w-full h-[95%] flex flex-col overflow-y-scroll">
+                        {messages.map((message, index) => {
+                          const isCurrentUser = message.sender === name;                      
 
                           return (
                             <div
@@ -353,8 +165,8 @@ function Chats()
                             >
                               {!isCurrentUser && (
                                 <img
-                                  src={message.img}
-                                  alt={message.name}
+                                  src={message.sender_image}
+                                  alt={message.sender}
                                   className="w-12 h-12 rounded-full object-cover mr-4"
                                 />
                               )}                        
@@ -364,15 +176,15 @@ function Chats()
                                   ${isCurrentUser ? 'bg-blue-500 text-white items-end' : 'bg-gray-200 text-gray-900 items-start'}`}
                               >
                                 {!isCurrentUser && (
-                                  <span className="text-sm font-semibold mb-1">{message.name}</span>
+                                  <span className="text-sm font-semibold mb-1">{message.sender}</span>
                                 )}
                                 <p className="max-w-[100%] break-words">{message.message}</p>
                               </div>                        
 
                               {isCurrentUser && (
                                 <img
-                                  src={message.img}
-                                  alt={message.name}
+                                  src={message.sender_image}
+                                  alt={message.sender}
                                   className="w-12 h-12 rounded-full object-cover ml-4"
                                 />
                               )}
@@ -382,8 +194,9 @@ function Chats()
 
                         </div>
                         <div className="w-full h-[5%]  flex items-center justify-around">
-                            <input className=" h-[80%] w-[90%] outline-none p-3 rounded-2xl" type="text" placeholder="Type " />
-                            <button className=""><IoSend size={40}/></button>
+                            <input className=" h-[80%] w-[90%] outline-none p-3 rounded-2xl" type="text" placeholder="Type "  onKeyDown={(e)=>{ if(e.key == 'Enter') { HandleSend(); }}}
+                            value={input} onChange={(e) => Setinput(e.target.value)} />
+                            <button className=""><IoSend onClick={HandleSend} size={40}/></button>
                         </div>
                     </div>
                 </div>

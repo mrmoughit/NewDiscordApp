@@ -170,7 +170,7 @@ function Profile(){
     
     if(!token|| !name) return;
     try {
-      const response = await axios(`http://13.222.154.232:4000/get_enemies`, {
+      const response = await axios(`http://13.222.154.232:4000/api/get_enemies`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -188,7 +188,7 @@ function Profile(){
 
   const DeleteFriend = async (user, idx) => {
       try {
-        const res = await axios.delete(`http://13.222.154.232:4000/delete`, 
+        const res = await axios.delete(`http://13.222.154.232:4000/api/delete`, 
           {
             params:{
               name:user,
@@ -201,11 +201,9 @@ function Profile(){
           
           });
           Setfreinds1((prev) => prev.filter((friend) => friend !== user));
-          // toast.success('Name deleted successfully');  
 
     }
     catch (error) {
-      // toast.error('Error deleting name:', error);
       console.error('Error deleting name:', error);
     }
     };

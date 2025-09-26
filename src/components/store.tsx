@@ -17,7 +17,7 @@ const useUserStore = create(
       connect: () => {
 
         const ws = new WebSocket(
-          `ws://13.222.154.232:80/ws`
+          `ws://13.222.154.232:4000/ws`
         );
 
         ws.onopen = () => {
