@@ -4,7 +4,7 @@ import Profile from '../components/Profile';
 import News from '../components/News';
 import Chats from '../components/Chats';
 import axios from 'axios';
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import useUserStore from '../components/store.tsx';
 
 function Dashboard() {

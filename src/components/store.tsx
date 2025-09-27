@@ -1,7 +1,35 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-const useUserStore = create(
+/** ✅ Define User type */
+export interface User {
+  id: string | null;
+  name: string | null;
+  img: string | null;
+  token: string | null;
+}
+
+/** ✅ Friend type (change if your backend returns objects instead of strings) */
+export type Friend = string;
+
+/** ✅ Define Store State & Actions */
+export interface UserState {
+  user: User;
+  friends: Friend[];
+  socket: WebSocket | null;
+
+  connect: () => void;
+
+  addFriends: (friendsArray: Friend[]) => void;
+  addFriend: (friend: Friend) => void;
+  removeFriend: (name: string) => void;
+  clearFriends: () => void;
+
+  setUserData: (data: Partial<User>) => void;
+  clearUser: () => void;
+}
+
+const useUserStore = create<UserState>()(
   persist(
     (set, get) => ({
       user: {
@@ -15,10 +43,7 @@ const useUserStore = create(
       socket: null,
 
       connect: () => {
-
-        const ws = new WebSocket(
-          `ws://13.222.154.232:4000/ws`
-        );
+        const ws = new WebSocket(`ws://13.222.154.232:4000/ws`);
 
         ws.onopen = () => {
           console.log("Connected");
@@ -36,7 +61,7 @@ const useUserStore = create(
         set((state) => ({
           friends: [...state.friends, ...friendsArray],
         })),
-      
+
       addFriend: (friend) =>
         set((state) => ({
           friends: [...state.friends, friend],
@@ -44,9 +69,9 @@ const useUserStore = create(
 
       removeFriend: (name) =>
         set((state) => ({
-          friends: state.friends.filter((f) => f.name !== name),
+          friends: state.friends.filter((f) => f !== name),
         })),
-      
+
       clearFriends: () => set({ friends: [] }),
 
       setUserData: (data) =>
@@ -56,11 +81,11 @@ const useUserStore = create(
 
       clearUser: () =>
         set({
-          user: { id: null, name: null, email: null, img: null, token: null },
+          user: { id: null, name: null, img: null, token: null },
         }),
     }),
     {
-      name: "user-storage", // This will persist the store in localStorage
+      name: "user-storage", // persisted key in localStorage
     }
   )
 );

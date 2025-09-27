@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Redi from './pages/Red';
 
+// Ensure the root element is not null
+const rootElement = document.getElementById('root');
 
-import Home from './pages/Home.tsx';
-import Login from './pages/Login.tsx';
-import Redi from './pages/Red.tsx'
+if (!rootElement) {
+    throw new Error("Failed to find the root element");
+}
 
-
-// const hideNavbar = location.pathname === "/admin";
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
         <Router>
             <div>
