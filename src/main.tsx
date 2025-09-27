@@ -29,3 +29,4 @@ ReactDOM.createRoot(rootElement).render(
         </Router>
     </React.StrictMode>
 );
+

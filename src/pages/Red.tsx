@@ -9,10 +9,10 @@ function Redi(){
     const t = new URLSearchParams(window.location.search).get('code')
 
     if (!t)
-      window.location.href = `http://localhost:5173/login`
+      window.location.href = `http://13.222.154.232/login`
     else{
         setUserData({token: t});
-        window.location.href = `http://localhost:5173`
+        window.location.href = `http://13.222.154.232`
 
     }
 

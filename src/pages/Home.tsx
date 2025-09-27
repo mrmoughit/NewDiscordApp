@@ -25,13 +25,13 @@ function Dashboard() {
             });
             setUserData({ name: response.data.login, img: response.data.img });
         } catch (error) {
-            window.location.href = `http://localhost:5173/login`; // Redirect if error
+            window.location.href = `http://13.222.154.232/login`; // Redirect if error
         }
     }
 
     useEffect(() => {
         if (!token) {
-            window.location.href = `http://localhost:5173/login`; // Redirect if no token
+            window.location.href = `http://13.222.154.232/login`; // Redirect if no token
         } else {
             // If token exists, fetch user data
             getUserData(token);
