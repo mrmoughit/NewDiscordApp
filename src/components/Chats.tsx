@@ -83,7 +83,7 @@ function Chats() {
           }
         );
         SetUsers(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -96,7 +96,7 @@ function Chats() {
 
     socket.onmessage = (event: MessageEvent) => {
       const { type, data }: { type: string; data: Message } = JSON.parse(event.data);
-      console.log(type, data);
+      // console.log(type, data);
       if (type === "message") {
         setMessages((prev) => [...prev, data]);
       }

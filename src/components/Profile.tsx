@@ -39,7 +39,7 @@ interface ApiError<T = any> extends AxiosError<T> {
         }
       );
 
-      console.log("Name added successfully");
+      // console.log("Name added successfully");
       setFriends1((prev) => [user.trim(), ...prev]);
       setUser("");
     } catch (error) {
@@ -97,7 +97,6 @@ interface ApiError<T = any> extends AxiosError<T> {
     fetchFriends();
   }, []);
 
-  // const friends = useUserStore((state) => state.friends);
 
   return (
     <div className="w-[90%] h-full flex flex-col">
@@ -106,7 +105,6 @@ interface ApiError<T = any> extends AxiosError<T> {
         <p className="text-4xl ml-2">{name}</p>
       </div>
 
-      {/* Stats Section */}
       <div className="h-[20%] w-full flex justify-center items-center text-2xl bg-gray-100 shadow-md gap-5">
         <div className="w-[20%] h-[60%] bg-green-500 shadow-lg flex flex-col items-center justify-around text-white">
           <h1 className="text-2xl">Success</h1>
@@ -126,12 +124,12 @@ interface ApiError<T = any> extends AxiosError<T> {
         </div>
       </div>
 
-      {/* Friends Section */}
+
       <div className="w-full h-[70%] flex justify-center items-center">
         <div className="w-[50%] h-[60%] bg-gray-100 flex flex-col shadow-md justify-around rounded-lg">
           <div className="h-[30%] w-full">
             <div className="h-[80%] flex justify-center items-center">
-              {/* <img className="h-[80%] rounded-[50%]" src={img} /> */}
+
               <img className="h-[80%] rounded-[50%]" src={img as string} />
 
             </div>
@@ -140,7 +138,6 @@ interface ApiError<T = any> extends AxiosError<T> {
             </div>
           </div>
 
-          {/* Input Section */}
           <div className="w-full flex justify-center">
             <div className="w-[70%] h-20 flex items-center justify-between pl-3 pr-3 mt-4">
               <input
@@ -166,7 +163,7 @@ interface ApiError<T = any> extends AxiosError<T> {
             {friends1.map((friend, index) => (
               <div key={index} className="flex justify-center">
                 <div className="flex justify-between pl-3 pr-3 mt-4 w-[70%]">
-                  <p className="text-xl">{friend}</p>
+                  <p className="text-xl blur-md hover:blur-none">{friend}</p>
                   <MdDelete
                     onClick={() => deleteFriend(friend)}
                     color="red"

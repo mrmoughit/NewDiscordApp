@@ -1,15 +1,15 @@
 import   { useState, useEffect } from "react";
 import useUserStore from "../components/store";
 
-/** ✅ Define type for incoming data from WebSocket */
+
 interface NewsCard {
   login: string;
   project: string;
-  status: "waiting_for_correction" | "finished" | string; // extend if you have more statuses
+  status: "waiting_for_correction" | "finished" | string; 
   created_at: string;
   img: string;
   intra_url: string;
-  final_mark?: number; // only for finished corrections
+  final_mark?: number; 
 }
 
 function News() {
@@ -43,7 +43,7 @@ function News() {
   return (
     <div className="w-[90%] mx-auto h-full flex flex-col lg:flex-row gap-4">
       {/* Left column */}
-      <div className="w-full lg:w-1/2 h-full bg-gray-100 shadow-lg flex flex-col items-center pt-3 gap-4 overflow-auto max-h-screen">
+      <div className="w-full lg:w-1/2 h-full bg-gray-100 shadow-lg flex flex-col items-center pt-3 gap-4 overflow-scroll scrollbar-hide">
         <div className="w-[90%] rounded-md bg-red-100 flex justify-center">
           <p className="text-xl">live actions</p>
         </div>
@@ -51,7 +51,7 @@ function News() {
         {array.map((card) =>
           card.status === "waiting_for_correction" ? (
             <a
-              key={card.intra_url} // ✅ better key than index
+              key={card.intra_url}
               href={card.intra_url}
               target="_blank"
               rel="noopener noreferrer"
@@ -85,9 +85,9 @@ function News() {
       </div>
 
       {/* Right column */}
-      <div className="w-full lg:w-1/2 h-64 lg:h-full bg-gray-100 flex flex-col items-center pt-3 gap-4 overflow-auto max-h-screen">
+      <div className="w-full lg:w-1/2 h-64 lg:h-full bg-gray-100 flex flex-col items-center pt-3 gap-4 overflow-scroll scrollbar-hide">
         <div className="w-[90%] rounded-md bg-red-100 flex justify-center">
-          <p className="text-xl">live actions</p>
+          <p className="text-xl"> actions result</p>
         </div>
 
         {array.map((card) =>

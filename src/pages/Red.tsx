@@ -9,10 +9,10 @@ function Redi(){
     const t = new URLSearchParams(window.location.search).get('code')
 
     if (!t)
-      window.location.href = `http://13.222.154.232/login`
+      window.location.href = `${import.meta.env.VITE_API_URL}/login`
     else{
         setUserData({token: t});
-        window.location.href = `http://13.222.154.232`
+        window.location.href = `${import.meta.env.VITE_API_URL}`
 
     }
 

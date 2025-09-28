@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-/** ✅ Define User type */
 export interface User {
   id: string | null;
   name: string | null;
@@ -9,10 +8,8 @@ export interface User {
   token: string | null;
 }
 
-/** ✅ Friend type (change if your backend returns objects instead of strings) */
 export type Friend = string;
 
-/** ✅ Define Store State & Actions */
 export interface UserState {
   user: User;
   friends: Friend[];
@@ -85,7 +82,7 @@ const useUserStore = create<UserState>()(
         }),
     }),
     {
-      name: "user-storage", // persisted key in localStorage
+      name: "user-storage",
     }
   )
 );
