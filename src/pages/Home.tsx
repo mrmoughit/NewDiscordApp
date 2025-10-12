@@ -10,6 +10,7 @@ import useUserStore from '../components/store.tsx';
 
 import Bugs from '../components/Bugs.tsx'
 import Catched from '../components/Catched.tsx'
+import Dash from '../components/Dash.tsx'
 
 function Dashboard() {
     const setUserData = useUserStore((state) => state.setUserData);
@@ -63,6 +64,7 @@ function Dashboard() {
                     <button onClick={() => handleNavigation("News")} className="text-black bg-slate-100 bg-opacity-60 w-full h-7 rounded-md hover:bg-slate-200">News</button>
                     <button onClick={() => handleNavigation("Catched Users")} className="text-black bg-slate-100 bg-opacity-60 w-full h-7 rounded-md hover:bg-slate-200">Wanted</button>
                     <button onClick={() => handleNavigation("Bugs")} className="text-black bg-slate-100 bg-opacity-60 w-full h-7 rounded-md hover:bg-slate-200">Bugs</button>
+                    <button onClick={() => handleNavigation("dash")} className="text-black bg-slate-100 bg-opacity-60 w-full h-7 rounded-md hover:bg-slate-200">Dash</button>
                 </div>
                 <div onClick={handleLogout} className="flex justify-center gap-2 items-center mb-4 h-7 bg-slate-100 bg-opacity-60">
                     <button  className="">Logout</button>
@@ -74,6 +76,7 @@ function Dashboard() {
             {activeTab === "Chats" && <Chats />}
             {activeTab === "Catched Users" && <Catched />}
             {activeTab === "Bugs" && <Bugs />}
+            {activeTab === "dash" && <Dash />}
         </div>
     );
 }
