@@ -1,5 +1,6 @@
 import   { useState, useEffect } from "react";
 import useUserStore from "../components/store";
+import axios from "axios";
 
 
 interface NewsCard {
@@ -17,6 +18,27 @@ function News() {
   const [isHovered, setIsHovered] = useState<string | null>(null);
 
   const socket = useUserStore((state) => state.socket);
+  const name = useUserStore((state) => state.user.name);
+  const token = useUserStore((state) => state.user.token);
+
+  useEffect(()=>{
+    async function tttt(){
+      try{
+        const data = await axios.get(
+        `https://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/data`,
+        {
+          headers: {
+            Authorization: `${token}`,
+            login: name,
+            "Content-Type": "application/json",
+          },
+        })
+        setArray(data.data)
+      }catch(er){
+      }
+    }
+    tttt();
+  },[])
 
   useEffect(() => {
     if (!socket) return;
