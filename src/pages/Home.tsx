@@ -27,7 +27,7 @@ function Dashboard() {
     }
     async function getUserData(token: string) {
         try {
-            const response = await axios(`http://13.222.154.232:4000/user_info`, {
+            const response = await axios(`https://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/user_info`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

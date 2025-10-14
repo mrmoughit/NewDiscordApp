@@ -8,7 +8,7 @@ function Login()
 
 
     async function handleLoginWithIntra(){
-        window.location.href = `http://13.222.154.232:4000/auth/42`;
+        window.location.href = `https://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/auth/42`;
     
     }
     function handleLogin(){

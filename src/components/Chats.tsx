@@ -30,7 +30,7 @@ function Chats() {
   const HandleSend = async () => {
     if (!input.trim()) return;
 
-    await axios.post("http://13.222.154.232:4000/api/send-message", {
+    await axios.post("https://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/api/send-message", {
       user: name,
       message: input.trim(),
       img,
@@ -52,7 +52,7 @@ function Chats() {
     const fetchData = async () => {
       try {
         const response: AxiosResponse<Message[]> = await axios.get(
-          "http://13.222.154.232:4000/api/Conversation",
+          "https://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/api/Conversation",
           {
             headers: {
               "Content-Type": "application/json",
@@ -73,7 +73,7 @@ function Chats() {
     const GetUsers = async () => {
       try {
         const response: AxiosResponse<User[]> = await axios.get(
-          "http://13.222.154.232:4000/api/GetUsers",
+          "https://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/api/GetUsers",
           {
             headers: {
               "Content-Type": "application/json",

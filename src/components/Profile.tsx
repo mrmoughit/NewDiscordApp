@@ -28,7 +28,7 @@ interface ApiError<T = any> extends AxiosError<T> {
 
     try {
       await axios.post(
-        `http://13.222.154.232:4000/add`,
+        `https://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/add`,
         { name: user.trim() },
         {
           headers: {
@@ -60,7 +60,7 @@ interface ApiError<T = any> extends AxiosError<T> {
     if (!token || !name) return;
     try {
       const response = await axios.get<string[]>(
-        `http://13.222.154.232:4000/api/get_enemies`,
+        `https://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/api/get_enemies`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -77,7 +77,7 @@ interface ApiError<T = any> extends AxiosError<T> {
 
   const deleteFriend = async (friendName: string, ): Promise<void> => {
     try {
-      await axios.delete(`http://13.222.154.232:4000/api/delete`, {
+      await axios.delete(`https://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/api/delete`, {
         params: {
           name: friendName,
           login: name,
