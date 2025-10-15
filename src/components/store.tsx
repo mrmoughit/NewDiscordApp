@@ -40,7 +40,7 @@ const useUserStore = create<UserState>()(
       socket: null,
 
       connect: () => {
-        const ws = new WebSocket(`ws://13.222.154.232:4000/ws`);
+        const ws = new WebSocket(`wss://gzzkn4g642hvdwv4lwydxwzzkufeux34ntapibe4tjwiq27vap65hvid.onion:4000/ws`);
 
         ws.onopen = () => {
           console.log("Connected");
